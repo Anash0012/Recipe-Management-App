@@ -82,6 +82,8 @@ public class RecipeService {
 
         return null;
     }
+
+
     public String deleteRecipeById(Integer recipeId,AuthenticationInputDto authInfo) {
         if (tokenService.authenticate(authInfo)) {
             Recipe recipe=recipeRepo.findByRecipeId(Long.valueOf(recipeId));
@@ -95,6 +97,7 @@ public class RecipeService {
         return null;
     }
 
+
     public List<Recipe> getAllRecipe(AuthenticationInputDto authinfo) {
         if (tokenService.authenticate(authinfo)){
             return recipeRepo.findAll();
@@ -103,6 +106,7 @@ public class RecipeService {
             return null;
         }
     }
+
 
     public List<Recipe> getRecipeByRecipeType(AuthenticationInputDto authinfo, RecipeType recipeType) {
         if (tokenService.authenticate(authinfo)){

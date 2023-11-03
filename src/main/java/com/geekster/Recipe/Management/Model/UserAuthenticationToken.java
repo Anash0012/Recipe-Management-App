@@ -22,14 +22,15 @@ public class UserAuthenticationToken {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer tokenId;
     private String tokenValue;
-    private LocalDateTime tokencreationTime;
+    private LocalDateTime tokenCreationTime;
 
     @OneToOne
     @JoinColumn(name="user_id")
     User user;
+
     public UserAuthenticationToken(User user){
         this.user=user;
-        this.tokencreationTime=LocalDateTime.now();
+        this.tokenCreationTime=LocalDateTime.now();
         this.tokenValue= UUID.randomUUID().toString();
     }
 
